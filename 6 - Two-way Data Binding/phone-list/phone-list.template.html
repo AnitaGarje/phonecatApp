@@ -1,0 +1,30 @@
+<div class="container-fluid">
+<div class="row">
+	 <div class="col-md-2">
+	 <!--Sidebar-->
+	 <p>
+	 Search:<input ng-model="$ctrl.query"/>
+	 </p>
+	 <p>
+	 Sort By:
+		 <select ng-model="$ctrl.orderProb">
+		 	<option value="-name">Alphanetically</option>
+		 	<option value="-age">Newest</option>
+		 	<option value="">Unknown</option>
+		 </select>	
+	 </p>
+	 <p>Current value:{{$ctrl.orderProb}}</p>
+	 </div>
+	 <div class="col-md-10">
+	 <!--body elememnt-->
+	 	<ul class="phones">
+	 		<li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProb">
+
+	 			<span>{{phone.name}}</span>
+	 			<p>{{phone.snippet}}</p>
+	 			<p>{{phone.age}}</p>
+	 		</li>
+	 	</ul>
+	 </div>
+</div>
+</div>
